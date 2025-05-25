@@ -1,6 +1,8 @@
 import { Router } from "express";
 import multer from "multer";
-import { addTodo } from "../controller/addTodo.controller.js";
+import { addTodo , getTodo } from "../controller/addTodo.controller.js";
+import { delTodo , updatetodo } from "../controller/delTodo.controller.js";
+
 
 const router = Router() ;
 
@@ -13,6 +15,21 @@ router.post("/add-todo" ,
     addTodo 
 )
 
+// get todo by index
+router.get("/get-todo/:index" ,
+    getTodo
+)
+
+// update a todo by index
+router.delete("/del-todo/:index" ,
+    delTodo 
+)
+
+// update a todo by index
+router.patch("/update-todo/:index" ,
+    upload.none() ,
+    updatetodo
+)
 export {
     router 
 }
